@@ -13,46 +13,14 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-# from django.conf.urls import include, url
-# from django.contrib import admin
-# from django.contrib.auth.models import User
-# from rest_framework import routers, serializers, viewsets
-
-# # Serializers define the API representation.
-# class UserSerializer(serializers.HyperlinkedModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ('result', 'error', 'cities', 'users')
-
-# # ViewSets define the view behavior.
-# class UserViewSet(viewsets.ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
-
-# urlpatterns = [
-#     url(r'^admin/', include(admin.site.urls)),
-#     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-# ]
-
-
 from django.conf.urls import url, include
-from django.contrib.auth.models import User
-from rest_framework import routers, serializers, viewsets
+from rest_framework import routers
+# from tutorial.quickstart import views
+from skynet import views
 
-# Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('state', 'city', 'username', 'message')
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-# Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'stat', UserViewSet)
+router.register(r'users', views.UserViewSet)
+# router.register(r'groups', views.GroupViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
