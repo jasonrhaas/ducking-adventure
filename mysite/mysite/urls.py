@@ -18,5 +18,5 @@ from skynet import views
 
 urlpatterns = [
     url(r'^stat/get/$', views.skynet_list),
-    url(r'^stat/get/(?P<pk>[0-9]+)/$', views.skynet_detail),
+    # url(r'^stat/get/(?P<pk>[0-9]+)/$', views.skynet_detail),
 ]
