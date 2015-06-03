@@ -14,7 +14,7 @@ from skynet.serializers import SkynetSerializer
 
 
 @api_view(['GET'])
-def skynet_list(request):
+def skynet_list(request, format=None):
     """
     List all snippets, or create a new snippet.
     """
