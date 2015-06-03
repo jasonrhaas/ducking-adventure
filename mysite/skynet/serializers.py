@@ -1,10 +1,10 @@
-from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from skynet.models import Messages
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class SkynetSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Messages
         fields = ('state', 'city', 'username', 'message')
 
 
