@@ -13,7 +13,7 @@ from skynet.models import Messages
 from skynet.serializers import SkynetSerializer
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def skynet_list(request):
     """
     List all snippets, or create a new snippet.
@@ -22,13 +22,6 @@ def skynet_list(request):
         messages = Messages.objects.all()
         serializer = SkynetSerializer(messages, many=True)
         return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = SkynetSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # @csrf_exempt
 # def skynet_list(request):
