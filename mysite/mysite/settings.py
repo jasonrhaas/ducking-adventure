@@ -74,7 +74,10 @@ TEMPLATES = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',),
-    'PAGE_SIZE': 25
+    'PAGE_SIZE': 25,
+    'DEFAULT_RENDERER_CLASSES': (
+    'rest_framework.renderers.JSONRenderer',
+)
 }
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
